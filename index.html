@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echelon Remote | Premium Remote Operations Support</title>
+  <meta name="description" content="Echelon Remote provides premium managed remote support for growing businesses through executive assistance, operational coordination, client communication, and structured remote operations support." />
+  <meta property="og:title" content="Echelon Remote" />
+  <meta property="og:description" content="Premium executive support, digital operations, and workforce development solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #071426;
+      --card: rgba(8,25,48,0.78);
+      --gold: #d4a84f;
+      --white: #ffffff;
+      --muted: #d7dbe2;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255,255,255,0.95);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      padding:10px 22px;
+      border:2px solid rgba(16,35,63,0.08);
+      border-radius:18px;
+      background:white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #10233f;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(rgba(3,10,20,0.82), rgba(3,10,20,0.88)), url('ER VA.png') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      max-width: 760px;
+      margin: auto auto 60px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+      box-shadow: var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(198,166,107,0.4);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .stats {
+      margin-top: 60px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+    }
+
+    .stat h2 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .team-grid img,
+    .article-card img {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .testimonial {
+      font-style: italic;
+    }
+
+    .contact {
+      background: linear-gradient(180deg,#0f0f10,#141414);
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(198,166,107,0.25);
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 40px 8%;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.6rem;
+      z-index: 999;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 80px 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><img src="https://i.imgur.com/d6pugq3.png" alt="Echelon Remote Logo" style="height:60px;width:auto;vertical-align:middle;filter:drop-shadow(0 10px 25px rgba(0,0,0,0.35));"></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Solutions</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Echelon</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" style="position:relative;overflow:hidden;">
+    <div class="hero-content fade">
+      <h1>Premium Remote Support For Modern Businesses.</h1>
+      <p>Echelon Remote provides premium, managed remote support for growing businesses that value efficiency, discretion, and consistency.</p>
+
+      <div class="btn-group">
+        <a href="https://forms.gle/JBBwJd3q3Uccqvah9" target="_blank" class="btn primary" style="padding:18px 42px;font-size:1rem;">Become A Client</a>
+        <a href="https://wa.me/18687094842" target="_blank" class="btn secondary">Chat On WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title fade">Built For Businesses That Need Reliable Support</h2>
+    <p class="section-sub fade">Echelon Remote helps founders and leadership teams streamline daily operations by placing trained remote professionals into clearly defined support roles—without the complexity of building and managing internal teams.
+    <br><br>
+    Our approach is structured, selective, and relationship-driven. Every engagement begins with understanding operational needs, followed by carefully matched support and ongoing oversight to maintain quality, consistency, and professionalism.
+    </p>
+
+    <div class="grid" style="margin-top:50px;margin-bottom:60px;">
+      <div class="card fade">
+        <h3>Executive-Level Professionalism</h3>
+        <p>Structured communication, dependable support, and operational consistency designed for modern businesses.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Managed Remote Support</h3>
+        <p>We provide oversight, structure, and carefully aligned support professionals instead of disconnected freelance assistance.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Global Remote Operations</h3>
+        <p>Supporting international and local businesses with premium remote operational support solutions.</p>
+      </div>
+    </div>
+
+    <div class="grid stats">
+      <div class="stat fade">
+        <h2>7+</h2>
+        <p>Years Experience</p>
+      </div>
+
+      <div class="stat fade">
+        <h2>100+</h2>
+        <p>Professionals Assisted</p>
+      </div>
+
+      <div class="stat fade">
+        <h2>Global</h2>
+        <p>Remote Support</p>
+      </div>
+
+      <div class="stat fade">
+        <h2>Managed</h2>
+        <p>Operational Oversight</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title fade">Operational Support Solutions</h2>
+
+    <div class="grid">
+      <div class="card fade">
+        <h3>Executive Support</h3>
+        <p>Calendar management, inbox coordination, scheduling oversight, travel coordination, and executive administrative support.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Operations Coordination</h3>
+        <p>Workflow organization, operational structure, internal coordination, recurring task management, and process support.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Client Communication Support</h3>
+        <p>Client follow-ups, CRM management, customer communication, and relationship-focused administrative support.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Administrative Support</h3>
+        <p>Documentation, onboarding assistance, reporting, data organization, and dependable day-to-day administrative coordination.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="background:linear-gradient(180deg,#08192f,#0c1f38);">
+    <h2 class="section-title fade">How We Work</h2>
+    <p class="section-sub fade">Our process is designed to provide businesses with structured, dependable, and professionally managed remote support.</p>
+
+    <div class="grid">
+      <div class="card fade">
+        <h3>01. Discovery Call</h3>
+        <p>We begin by understanding your business operations, communication style, and support requirements.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>02. Operational Assessment</h3>
+        <p>We identify workflow gaps, recurring administrative needs, and support priorities.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>03. Strategic Support Matching</h3>
+        <p>We align trained remote professionals with clearly defined operational responsibilities.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>04. Ongoing Oversight</h3>
+        <p>Echelon Remote maintains structure, communication, and quality oversight throughout the engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2 class="section-title fade">Why Echelon Remote</h2>
+    <p class="section-sub fade">Echelon Remote provides professionally managed operational support designed for growing businesses that need reliability, structure, and consistency.</p>
+
+    <div class="grid">
+      <div class="card fade">
+        <h3>Structured Operational Support</h3>
+        <p>Clear workflows, organized communication, and dependable support systems designed around business operations.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Carefully Selected Professionals</h3>
+        <p>We place trained support professionals into clearly defined roles aligned with client operational needs.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Managed Oversight & Accountability</h3>
+        <p>Ongoing operational oversight ensures professionalism, consistency, and quality support delivery.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Relationship-Driven Support</h3>
+        <p>Long-term operational partnerships focused on communication, trust, and business continuity.</p>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:50px;">
+      <div class="card fade">
+        <h3>Industries We Support</h3>
+        <p>Consulting firms, service-based businesses, founders, agencies, real estate professionals, and growing operational teams.</p>
+      </div>
+
+      <div class="card fade">
+        <h3>Founder-Led Operations</h3>
+        <p>Led by Masheica Thomas with a strong focus on operational structure, professionalism, and client communication standards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title fade">Operational Excellence Backed By Real Systems</h2>
+
+    <div class="grid">
+      <div class="card fade">
+        <img src="https://i.imgur.com/U6zzSaF.png" alt="Operational Workflow" style="width:100%;border-radius:18px;margin-bottom:18px;">
+        <h3>Client Workflow Management</h3>
+        <p>Structured onboarding, task coordination, and operational visibility designed to improve organization and accountability.</p>
+      </div>
+
+      <div class="card fade">
+        <img src="https://i.imgur.com/Jr7ZmaH.png" alt="Executive Support Systems" style="width:100%;border-radius:18px;margin-bottom:18px;">
+        <h3>Executive Support Systems</h3>
+        <p>Professional communication management, scheduling systems, and organized operational support for growing businesses.</p>
+      </div>
+
+      <div class="card fade">
+        <img src="https://i.imgur.com/6oo7dVp.png" alt="Remote Operations Dashboard" style="width:100%;border-radius:18px;margin-bottom:18px;">
+        <h3>Remote Operations Oversight</h3>
+        <p>Dependable remote coordination supported by modern workflows, operational systems, and quality management.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title fade">Testimonials</h2>
+
+    <div class="grid">
+      <div class="card fade testimonial">
+        <p>“Before working with Echelon Remote, communication and scheduling across our business felt scattered. Their structure and consistency immediately improved how our team operated.”</p>
+        <br>
+        <strong>— Consulting Agency Founder</strong>
+      </div>
+
+      <div class="card fade testimonial">
+        <p>“The level of professionalism and follow-through made Echelon Remote feel like an extension of our internal operations team.”</p>
+        <br>
+        <strong>— Operations Executive</strong>
+      </div>
+
+      <div class="card fade testimonial">
+        <p>“Reliable communication, organized systems, and consistent support made a major difference in our day-to-day operations.”</p>
+        <br>
+        <strong>— Service Business Owner</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="insights" style="background:linear-gradient(180deg,#071426,#0b1d36);">
+    <h2 class="section-title fade">Insights</h2>
+    <p class="section-sub fade">Practical insights for founders and businesses looking to improve delegation, operational efficiency, and remote support systems.</p>
+
+    <div class="grid">
+      <div class="card article-card fade" style="cursor:pointer;position:relative;">
+        <img src="https://i.imgur.com/rRW6oX4.png" alt="Executive Operations Strategy">
+        <h3>Why Delegation Is Essential For Growth ↗</h3>
+        <p>How business owners create operational clarity and regain focus through strategic support.</p>
+      </div>
+
+      <div class="card article-card fade" style="cursor:pointer;position:relative;">
+        <img src="https://i.imgur.com/gmJmZ0f.png" alt="Client Communication Systems">
+        <h3>Building Reliable Client Communication Systems ↗</h3>
+        <p>Operational systems that improve responsiveness, organization, and customer experience.</p>
+      </div>
+
+      <div class="card article-card fade" style="cursor:pointer;position:relative;">
+        <img src="https://i.imgur.com/i4C03hG.png" alt="Remote Operations Support">
+        <h3>The Modern Standard For Remote Operations ↗</h3>
+        <p>Why modern businesses are moving toward managed remote operational support structures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div style="text-align:center;margin-bottom:50px;" class="fade">
+      <a href="https://forms.gle/JBBwJd3q3Uccqvah9" target="_blank" class="btn primary" style="padding:22px 54px;font-size:1.05rem;">Become A Client</a>
+    </div>
+    <div class="btn-group fade" style="margin-bottom:40px;justify-content:center;">
+      <a href="https://calendly.com/echelonremote/30min" target="_blank" class="btn secondary">Book A Consultation</a>
+    </div>
+    <h2 class="section-title fade">Let's Build Smarter Operations Together</h2>
+    <p class="section-sub fade">Connect with Echelon Remote for professional support, training, and digital operations solutions.</p>
+
+    <form action="https://formspree.io/f/xgoqzjwd" method="POST" class="fade">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="company" placeholder="Company Name">
+      <input type="text" name="service" placeholder="Service Interest">
+      <textarea name="message" placeholder="Tell us about your business needs..."></textarea>
+
+      <button class="btn primary" type="submit">Send Inquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;align-items:flex-start;text-align:left;max-width:1200px;margin:auto;">
+      <div>
+        <img src="https://i.imgur.com/d6pugq3.png" alt="Echelon Remote" style="height:55px;margin-bottom:18px;">
+        <p style="max-width:340px;line-height:1.8;color:#d7dbe2;">
+          Premium managed operational support for growing businesses that value professionalism, structure, and consistency.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom:15px;color:#ffffff;">Navigation</h4>
+        <p><a href="#about" style="color:#d7dbe2;text-decoration:none;">About</a></p>
+        <p><a href="#services" style="color:#d7dbe2;text-decoration:none;">Solutions</a></p>
+        <p><a href="#why" style="color:#d7dbe2;text-decoration:none;">Why Echelon</a></p>
+        <p><a href="#contact" style="color:#d7dbe2;text-decoration:none;">Contact</a></p>
+      </div>
+
+      <div>
+        <h4 style="margin-bottom:15px;color:#ffffff;">Connect</h4>
+        <p><a href="https://www.linkedin.com/company/echelon-remote/" target="_blank" style="color:#d7dbe2;text-decoration:none;">LinkedIn</a></p>
+        <p><a href="https://www.facebook.com/echelonremote" target="_blank" style="color:#d7dbe2;text-decoration:none;">Facebook</a></p>
+        <p><a href="https://calendly.com/echelonremote/30min" target="_blank" style="color:#d7dbe2;text-decoration:none;">Book Consultation</a></p>
+      </div>
+    </div>
+
+    <div style="margin-top:50px;padding-top:25px;border-top:1px solid rgba(255,255,255,0.08);text-align:center;color:#9da9bb;">
+      © 2026 Echelon Remote. Premium Managed Operational Support.
+    </div>
+  </footer>
+
+  
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      })
+    }, {threshold: 0.15});
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
