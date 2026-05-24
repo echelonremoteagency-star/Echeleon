@@ -3,37 +3,14 @@
 <head>
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Echelon Remote | Premium Operational Support</title>
 
 <meta
 name="description"
-content="Echelon Remote provides premium managed operational support for growing businesses through executive coordination, workflow systems, communication management, and structured remote support."
+content="Echelon Remote provides premium managed operational support for growing businesses through executive coordination, workflow systems, communication management, and scalable remote operations."
 />
-
-<meta
-name="keywords"
-content="executive support, operational support, remote support company, workflow management, executive coordination, business operations"
-/>
-
-<meta name="robots" content="index, follow" />
-
-<meta property="og:title" content="Echelon Remote" />
-
-<meta
-property="og:description"
-content="Premium managed operational support for growing businesses."
-/>
-
-<meta
-property="og:image"
-content="https://i.imgur.com/DKNGig0.png"
-/>
-
-<meta property="og:type" content="website" />
-
-<link rel="icon" href="https://i.imgur.com/DKNGig0.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,10 +29,20 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
+:root{
+--bg:#071321;
+--bg2:#0d1d34;
+--gold:#d5a85e;
+--text:#ffffff;
+--muted:#cfd5dc;
+--glass:rgba(255,255,255,0.05);
+--border:rgba(255,255,255,0.08);
+}
+
 body{
 font-family:'Poppins',sans-serif;
-background:#071321;
-color:#fff;
+background:var(--bg);
+color:var(--text);
 overflow-x:hidden;
 }
 
@@ -64,8 +51,8 @@ width:8px;
 }
 
 body::-webkit-scrollbar-thumb{
-background:#d5a85e;
-border-radius:10px;
+background:var(--gold);
+border-radius:20px;
 }
 
 img{
@@ -73,67 +60,89 @@ max-width:100%;
 display:block;
 }
 
+a{
+text-decoration:none;
+}
+
 section{
 padding:110px 8%;
 position:relative;
 }
 
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* NAV */
+/* =========================
+NAVBAR
+========================= */
 
 header{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-z-index:1000;
-padding:18px 6%;
+z-index:999;
+padding:18px 5%;
 transition:0.4s ease;
 }
 
 header.scrolled{
-background:rgba(4,10,18,0.9);
+background:rgba(5,10,18,0.78);
 backdrop-filter:blur(18px);
 }
 
-.nav{
+.navbar{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:14px 24px;
-border-radius:22px;
+padding:14px 22px;
+border-radius:24px;
 background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.07);
 backdrop-filter:blur(16px);
 }
 
-.logo img{
-height:52px;
-width:auto;
-object-fit:contain;
-mix-blend-mode:screen;
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-circle{
+width:54px;
+height:54px;
+border-radius:50%;
+overflow:hidden;
+background:#08111d;
+border:1px solid rgba(255,255,255,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 8px 25px rgba(0,0,0,0.35);
+}
+
+.logo-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+transform:scale(1.35);
+}
+
+.logo span{
+font-weight:700;
+font-size:1rem;
+letter-spacing:0.5px;
 }
 
 .nav-links{
 display:flex;
-gap:24px;
+align-items:center;
+gap:28px;
 }
 
 .nav-links a{
 color:#fff;
-text-decoration:none;
 font-size:0.94rem;
 font-weight:500;
 position:relative;
+transition:0.3s ease;
 }
 
 .nav-links a::after{
@@ -143,7 +152,7 @@ left:0;
 bottom:-6px;
 width:0;
 height:2px;
-background:#d5a85e;
+background:var(--gold);
 transition:0.3s ease;
 }
 
@@ -151,87 +160,138 @@ transition:0.3s ease;
 width:100%;
 }
 
-/* HERO */
+.nav-btn{
+padding:14px 22px;
+border-radius:14px;
+background:var(--gold);
+color:#08111d !important;
+font-weight:600;
+transition:0.3s ease;
+}
+
+.nav-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(213,168,94,0.35);
+}
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
+
+.hamburger span{
+width:25px;
+height:2px;
+background:#fff;
+border-radius:10px;
+transition:0.3s ease;
+}
+
+.mobile-menu{
+position:absolute;
+top:100%;
+left:0;
+width:100%;
+padding:20px;
+display:none;
+flex-direction:column;
+gap:18px;
+background:rgba(5,10,18,0.95);
+backdrop-filter:blur(20px);
+border-bottom-left-radius:24px;
+border-bottom-right-radius:24px;
+border:1px solid rgba(255,255,255,0.06);
+animation:fadeMenu 0.4s ease;
+}
+
+.mobile-menu a{
+color:#fff;
+font-size:1rem;
+font-weight:500;
+}
+
+.mobile-menu .nav-btn{
+text-align:center;
+margin-top:10px;
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
-position:relative;
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:180px 8% 120px;
+position:relative;
 overflow:hidden;
+padding-top:170px;
+padding-bottom:100px;
 }
 
 .hero-bg{
 position:absolute;
 inset:0;
 background:
+linear-gradient(rgba(4,10,18,0.84),rgba(4,10,18,0.90)),
 url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop');
 background-size:cover;
 background-position:center;
-animation:heroZoom 20s ease-in-out infinite alternate;
-z-index:-3;
+z-index:-4;
+animation:zoomHero 20s ease-in-out infinite alternate;
 }
 
-.hero-overlay{
+.hero-gradient{
 position:absolute;
-inset:0;
-background:
-linear-gradient(
-135deg,
-rgba(3,10,18,0.94),
-rgba(7,19,33,0.90)
-);
-z-index:-2;
-}
-
-.hero-glow{
-position:absolute;
-width:650px;
-height:650px;
-background:rgba(213,168,94,0.12);
-filter:blur(120px);
+width:700px;
+height:700px;
 border-radius:50%;
+background:rgba(213,168,94,0.10);
+filter:blur(120px);
 top:-200px;
-right:-120px;
-z-index:-1;
+right:-100px;
+z-index:-3;
 animation:floatGlow 10s ease-in-out infinite alternate;
 }
 
-.hero-wrapper{
-width:100%;
+.hero-grid{
 display:grid;
 grid-template-columns:1.1fr 0.9fr;
 gap:80px;
 align-items:center;
+width:100%;
 }
 
 .hero-badge{
-display:inline-block;
+display:inline-flex;
+align-items:center;
+gap:10px;
 padding:10px 18px;
-border-radius:50px;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
-font-size:0.78rem;
+border-radius:50px;
+font-size:0.8rem;
 letter-spacing:1px;
 margin-bottom:28px;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 }
 
-.hero-content h1{
+.hero-title{
 font-size:5rem;
 line-height:0.95;
-margin-bottom:28px;
 font-weight:800;
 max-width:700px;
+margin-bottom:28px;
 }
 
-.hero-content p{
-font-size:1.05rem;
+.hero-text{
+font-size:1.02rem;
 line-height:1.9;
+color:var(--muted);
 max-width:620px;
-color:#d7dde5;
-margin-bottom:40px;
+margin-bottom:42px;
 }
 
 .hero-buttons{
@@ -241,337 +301,308 @@ flex-wrap:wrap;
 margin-bottom:50px;
 }
 
-.hero-btn{
-padding:18px 34px;
-border-radius:14px;
+.btn{
+padding:18px 32px;
+border-radius:16px;
 font-weight:600;
-text-decoration:none;
-transition:0.4s ease;
 display:inline-flex;
 align-items:center;
 justify-content:center;
+transition:0.35s ease;
 }
 
-.primary-btn{
-background:#d5a85e;
-color:#071321;
+.btn-primary{
+background:var(--gold);
+color:#08111d;
 }
 
-.primary-btn:hover{
+.btn-primary:hover{
 transform:translateY(-4px);
-box-shadow:0 20px 50px rgba(213,168,94,0.3);
+box-shadow:0 18px 40px rgba(213,168,94,0.35);
 }
 
-.secondary-btn{
+.btn-secondary{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
 color:#fff;
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 }
 
-.secondary-btn:hover{
-background:rgba(255,255,255,0.08);
+.btn-secondary:hover{
 transform:translateY(-4px);
+background:rgba(255,255,255,0.08);
 }
 
 .hero-stats{
 display:flex;
-gap:22px;
+gap:20px;
 flex-wrap:wrap;
 }
 
-.stat-item{
-padding:22px 26px;
-background:rgba(255,255,255,0.04);
+.hero-stat{
+padding:22px;
+min-width:180px;
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
-border-radius:20px;
-backdrop-filter:blur(10px);
-min-width:170px;
+border-radius:22px;
+backdrop-filter:blur(14px);
 }
 
-.stat-item h3{
+.hero-stat h3{
 font-size:2rem;
-margin-bottom:8px;
-color:#d5a85e;
+margin-bottom:6px;
+color:var(--gold);
 }
 
-.stat-item p{
-font-size:0.9rem;
-margin:0;
-line-height:1.5;
+.hero-stat p{
+font-size:0.92rem;
+color:var(--muted);
 }
 
 .hero-visual{
-display:flex;
-justify-content:center;
 position:relative;
 }
 
-.main-image-card{
-position:relative;
-width:100%;
-max-width:500px;
-border-radius:40px;
+.hero-image{
+border-radius:38px;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.08);
-background:#0d1d34;
-box-shadow:0 40px 90px rgba(0,0,0,0.35);
+box-shadow:0 30px 90px rgba(0,0,0,0.4);
+position:relative;
 }
 
-.main-image-card img{
+.hero-image img{
 width:100%;
-height:680px;
+height:700px;
 object-fit:cover;
-display:block;
 }
 
-.floating-card{
+.hero-glass{
 position:absolute;
-padding:16px 22px;
-background:rgba(7,19,33,0.82);
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
-border-radius:18px;
-font-size:0.92rem;
-font-weight:500;
-box-shadow:0 12px 30px rgba(0,0,0,0.25);
-}
-
-.top-card{
-top:30px;
-left:-30px;
-}
-
-.bottom-card{
 bottom:30px;
-right:-30px;
+left:30px;
+right:30px;
+padding:22px;
+background:rgba(8,17,29,0.68);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+backdrop-filter:blur(16px);
 }
 
-/* TITLES */
+.hero-glass h4{
+font-size:1rem;
+margin-bottom:10px;
+}
+
+.hero-glass p{
+font-size:0.92rem;
+line-height:1.7;
+color:var(--muted);
+}
+
+/* =========================
+SECTION TITLES
+========================= */
 
 .section-title{
 font-size:3rem;
 line-height:1.1;
-margin-bottom:22px;
-position:relative;
+margin-bottom:24px;
 }
 
 .section-title::after{
 content:'';
 display:block;
-width:85px;
+width:90px;
 height:2px;
-background:#d5a85e;
+background:var(--gold);
 margin-top:18px;
-border-radius:10px;
+border-radius:20px;
 }
 
 .section-sub{
 max-width:760px;
 line-height:1.9;
-color:#cfd5dc;
+color:var(--muted);
 margin-bottom:60px;
-font-size:1rem;
 }
 
-/* GRID */
+/* =========================
+PREMIUM SERVICE CARDS
+========================= */
 
-.grid{
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:28px;
 }
 
 .card{
-background:linear-gradient(
+background:
+linear-gradient(
 180deg,
 rgba(255,255,255,0.05),
 rgba(255,255,255,0.03)
 );
 border:1px solid rgba(255,255,255,0.08);
-padding:34px;
-border-radius:28px;
-backdrop-filter:blur(14px);
-transition:0.4s ease;
+border-radius:30px;
 overflow:hidden;
+transition:0.4s ease;
+backdrop-filter:blur(14px);
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:rgba(213,168,94,0.35);
-box-shadow:0 25px 50px rgba(0,0,0,0.28);
+transform:translateY(-10px);
+border-color:rgba(213,168,94,0.30);
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(213,168,94,0.06);
+border-radius:50%;
+filter:blur(80px);
+top:-120px;
+right:-120px;
+opacity:0;
+transition:0.5s ease;
+}
+
+.card:hover::before{
+opacity:1;
+}
+
+.card-image{
+height:230px;
+overflow:hidden;
+}
+
+.card-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s ease;
+}
+
+.card:hover img{
+transform:scale(1.06);
+}
+
+.card-content{
+padding:30px;
+}
+
+.card-icon{
+width:58px;
+height:58px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(213,168,94,0.12);
+border:1px solid rgba(213,168,94,0.20);
+font-size:1.5rem;
+margin-bottom:22px;
+color:var(--gold);
 }
 
 .card h3{
-margin-bottom:16px;
 font-size:1.3rem;
+margin-bottom:16px;
 }
 
 .card p{
 line-height:1.9;
-color:#d2d9e0;
-font-size:0.98rem;
+color:var(--muted);
+font-size:0.96rem;
 }
 
-/* VISUAL SECTION */
+/* =========================
+WORKFLOW
+========================= */
 
-.visual-section{
+.workflow{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:70px;
 align-items:center;
 }
 
-.visual-section img{
-border-radius:30px;
-box-shadow:0 25px 60px rgba(0,0,0,0.35);
+.workflow-image{
+border-radius:32px;
+overflow:hidden;
+box-shadow:0 25px 70px rgba(0,0,0,0.35);
 }
 
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:22px;
-margin-top:50px;
-}
-
-.stat{
-padding:32px;
-background:#0d1d34;
-border-radius:24px;
-border:1px solid rgba(255,255,255,0.06);
-text-align:center;
-}
-
-.stat h2{
-font-size:2.4rem;
-margin-bottom:10px;
-color:#d5a85e;
-}
-
-/* BENTO */
-
-.bento{
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:22px;
-}
-
-.bento img{
+.workflow-image img{
 width:100%;
-height:100%;
+height:650px;
 object-fit:cover;
-border-radius:28px;
-transition:0.5s ease;
 }
 
-.bento img:hover{
-transform:scale(1.03);
-}
-
-.bento-large{
-height:540px;
-}
-
-.bento-small{
-height:260px;
-}
-
-/* FOUNDER */
-
-.founder{
+.workflow-points{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
-background:linear-gradient(135deg,#0d1d34,#11294b);
-padding:70px;
+gap:24px;
+margin-top:30px;
+}
+
+.workflow-point{
+padding:24px;
+border-radius:24px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+TRAINING
+========================= */
+
+.training{
+background:linear-gradient(135deg,#0d1d34,#12294c);
 border-radius:40px;
+padding:70px;
 overflow:hidden;
 position:relative;
 }
 
-.founder::before{
+.training::before{
 content:'';
 position:absolute;
-width:420px;
-height:420px;
-background:rgba(213,168,94,0.10);
-filter:blur(100px);
+width:500px;
+height:500px;
 border-radius:50%;
-left:-120px;
-bottom:-120px;
+background:rgba(213,168,94,0.08);
+filter:blur(120px);
+top:-200px;
+right:-100px;
 }
 
-.founder img{
-border-radius:30px;
-position:relative;
-z-index:2;
-box-shadow:0 30px 80px rgba(0,0,0,0.35);
-}
-
-.founder-content{
-position:relative;
-z-index:2;
-}
-
-.founder span{
-display:block;
-color:#d5a85e;
-font-weight:600;
-margin-bottom:18px;
-}
-
-/* PROCESS */
-
-.process-grid{
+.training-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:24px;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+position:relative;
+z-index:2;
 }
 
-.process-card{
-padding:34px;
-border-radius:26px;
-background:#0d1d34;
-border:1px solid rgba(255,255,255,0.06);
+.training img{
+border-radius:28px;
+box-shadow:0 20px 60px rgba(0,0,0,0.35);
 }
 
-.process-card h3{
-margin-bottom:16px;
-color:#d5a85e;
-}
+/* =========================
+CONTACT
+========================= */
 
-/* ARTICLES */
-
-.article-card img{
-width:100%;
-height:240px;
-object-fit:cover;
-border-radius:18px;
-margin-bottom:24px;
-transition:0.5s ease;
-}
-
-.article-card:hover img{
-transform:scale(1.05);
-}
-
-.article-link{
-display:inline-block;
-margin-top:18px;
-color:#d5a85e;
-font-weight:600;
-text-decoration:none;
-}
-
-/* CONTACT */
-
-.contact-box{
+.contact{
 background:linear-gradient(135deg,#0d1d34,#12294c);
-padding:70px;
 border-radius:40px;
+padding:70px;
 }
 
 form{
@@ -583,7 +614,7 @@ margin-top:40px;
 input,
 textarea{
 padding:18px;
-border-radius:16px;
+border-radius:18px;
 border:1px solid rgba(255,255,255,0.08);
 background:rgba(255,255,255,0.06);
 color:#fff;
@@ -600,36 +631,50 @@ border:none;
 cursor:pointer;
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
 padding:60px 8%;
+text-align:center;
 background:#06111d;
 border-top:1px solid rgba(255,255,255,0.08);
-text-align:center;
 }
 
-footer p{
-color:#cfd5dc;
-line-height:1.8;
-}
-
-.socials{
+.footer-links{
 display:flex;
 justify-content:center;
-gap:24px;
-margin-bottom:24px;
+gap:28px;
+margin-bottom:28px;
 flex-wrap:wrap;
 }
 
-.socials a{
+.footer-links a{
 color:#fff;
-text-decoration:none;
 }
 
-/* ANIMATIONS */
+footer p{
+line-height:1.9;
+color:var(--muted);
+}
 
-@keyframes heroZoom{
+/* =========================
+ANIMATIONS
+========================= */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@keyframes zoomHero{
 from{
 transform:scale(1);
 }
@@ -640,38 +685,65 @@ transform:scale(1.08);
 
 @keyframes floatGlow{
 from{
-transform:translateY(0px) translateX(0px);
+transform:translateY(0) translateX(0);
 }
 to{
 transform:translateY(30px) translateX(-40px);
 }
 }
 
-/* MOBILE */
+@keyframes fadeMenu{
+from{
+opacity:0;
+transform:translateY(-10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:1000px){
+
+section{
+padding:90px 6%;
+}
 
 .nav-links{
 display:none;
 }
 
+.hamburger{
+display:flex;
+}
+
+.mobile-menu.active{
+display:flex;
+}
+
 .hero{
-padding:140px 6% 80px;
+padding-top:140px;
+padding-bottom:70px;
 min-height:auto;
 }
 
-.hero-wrapper{
+.hero-grid{
 grid-template-columns:1fr;
 gap:50px;
 }
 
-.hero-content h1{
+.hero-title{
 font-size:3rem;
 line-height:1.05;
+max-width:100%;
 }
 
-.hero-content p{
-font-size:0.98rem;
+.hero-text{
+font-size:0.96rem;
 line-height:1.8;
 }
 
@@ -679,7 +751,7 @@ line-height:1.8;
 flex-direction:column;
 }
 
-.hero-btn{
+.btn{
 width:100%;
 }
 
@@ -689,48 +761,39 @@ grid-template-columns:1fr;
 gap:16px;
 }
 
-.main-image-card{
-max-width:100%;
+.hero-image img{
+height:500px;
 }
 
-.main-image-card img{
-height:480px;
-}
-
-.top-card{
-left:15px;
-top:15px;
-}
-
-.bottom-card{
-right:15px;
-bottom:15px;
-}
-
-.visual-section{
-grid-template-columns:1fr;
-}
-
-.founder{
-grid-template-columns:1fr;
-padding:40px 30px;
-}
-
-.bento{
-grid-template-columns:1fr;
-}
-
-.bento-large,
-.bento-small{
-height:300px;
-}
-
-.contact-box{
-padding:40px 28px;
+.hero-glass{
+left:16px;
+right:16px;
+bottom:16px;
 }
 
 .section-title{
-font-size:2.4rem;
+font-size:2.3rem;
+}
+
+.workflow,
+.training-grid{
+grid-template-columns:1fr;
+}
+
+.workflow-image img{
+height:420px;
+}
+
+.training{
+padding:40px 28px;
+}
+
+.contact{
+padding:40px 28px;
+}
+
+.logo span{
+display:none;
 }
 
 }
@@ -741,57 +804,110 @@ font-size:2.4rem;
 
 <body>
 
+<!-- =========================
+HEADER
+========================= -->
+
 <header id="header">
 
-<div class="nav">
+<div class="navbar">
 
 <a href="#home" class="logo">
-<img src="https://i.imgur.com/DKNGig0.png" alt="Echelon Remote Logo">
+
+<div class="logo-circle">
+<img src="https://i.imgur.com/jVtxeVU.jpeg" alt="Echelon Remote Logo">
+</div>
+
+<span>Echelon Remote</span>
+
 </a>
 
 <div class="nav-links">
-<a href="#about">About</a>
+
+<a href="#home">Home</a>
 <a href="#services">Services</a>
-<a href="#founder">Founder</a>
-<a href="#insights">Insights</a>
+<a href="#workflow">Workflow Systems</a>
+<a href="#training">Training</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
+
+<a
+href="https://calendly.com/echelonremote/30min"
+target="_blank"
+class="nav-btn"
+>
+Book Consultation
+</a>
+
+</div>
+
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#workflow">Workflow Systems</a>
+<a href="#training">Training</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+<a
+href="https://calendly.com/echelonremote/30min"
+target="_blank"
+class="nav-btn"
+>
+Book Consultation
+</a>
+
 </div>
 
 </div>
 
 </header>
 
-<!-- HERO -->
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero" id="home">
 
 <div class="hero-bg"></div>
-<div class="hero-overlay"></div>
-<div class="hero-glow"></div>
+<div class="hero-gradient"></div>
 
-<div class="hero-wrapper">
+<div class="hero-grid">
 
-<div class="hero-content fade show">
+<div class="fade show">
 
-<span class="hero-badge">
+<div class="hero-badge">
 PREMIUM OPERATIONAL SUPPORT
-</span>
+</div>
 
-<h1>
-Operational Support Built For Growing Businesses.
+<h1 class="hero-title">
+Operational Support
+Built For Growing
+Businesses.
 </h1>
 
-<p>
-Echelon Remote helps founders and leadership teams streamline operations through professionally managed support, workflow coordination, communication systems, and structured remote operational assistance.
+<p class="hero-text">
+Echelon Remote helps founders and leadership teams streamline operations through structured workflow systems, executive coordination, communication management, and scalable remote operational support.
 </p>
 
 <div class="hero-buttons">
 
-<a href="https://calendly.com/echelonremote/30min" target="_blank" class="hero-btn primary-btn">
-Book A Consultation
+<a
+href="https://calendly.com/echelonremote/30min"
+target="_blank"
+class="btn btn-primary"
+>
+Book Consultation
 </a>
 
-<a href="#services" class="hero-btn secondary-btn">
+<a href="#services" class="btn btn-secondary">
 Explore Services
 </a>
 
@@ -799,17 +915,17 @@ Explore Services
 
 <div class="hero-stats">
 
-<div class="stat-item">
+<div class="hero-stat">
 <h3>100+</h3>
 <p>Businesses Supported</p>
 </div>
 
-<div class="stat-item">
+<div class="hero-stat">
 <h3>Global</h3>
 <p>Remote Operations</p>
 </div>
 
-<div class="stat-item">
+<div class="hero-stat">
 <h3>7+</h3>
 <p>Years Experience</p>
 </div>
@@ -820,71 +936,21 @@ Explore Services
 
 <div class="hero-visual fade show">
 
-<div class="main-image-card">
+<div class="hero-image">
 
-<img
-src="https://i.imgur.com/Bd9iTnk.png"
-alt="Founder & Operations Lead"
-/>
-
-<div class="floating-card top-card">
-<p>Operational Coordination</p>
-</div>
-
-<div class="floating-card bottom-card">
-<p>Executive Workflow Support</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="visual-section">
-
-<div class="fade">
 <img
 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop"
-alt="Operations Team"
+alt="Business Operations"
 />
-</div>
 
-<div class="fade">
+<div class="hero-glass">
 
-<h2 class="section-title">
-Built For Modern Business Operations
-</h2>
+<h4>Operational Infrastructure For Modern Teams</h4>
 
-<p class="section-sub">
-Echelon Remote provides premium managed operational support for growing businesses that value professionalism, communication consistency, and operational structure.
+<p>
+Structured support systems designed for founders, leadership teams, and growing businesses.
 </p>
 
-<p class="section-sub">
-Our approach is relationship-driven and carefully managed — helping businesses maintain smoother workflows, better coordination, and dependable operational support.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<h2>7+</h2>
-<p>Years Experience</p>
-</div>
-
-<div class="stat">
-<h2>Global</h2>
-<p>Remote Support</p>
-</div>
-
-<div class="stat">
-<h2>100+</h2>
-<p>Businesses Supported</p>
 </div>
 
 </div>
@@ -895,93 +961,79 @@ Our approach is relationship-driven and carefully managed — helping businesses
 
 </section>
 
-<!-- WHY -->
-
-<section>
-
-<h2 class="section-title fade">
-Why Businesses Choose Echelon
-</h2>
-
-<div class="grid">
-
-<div class="card fade">
-<h3>Structured Support</h3>
-<p>
-Organized operational systems designed to improve workflow clarity and communication consistency.
-</p>
-</div>
-
-<div class="card fade">
-<h3>Professional Standards</h3>
-<p>
-Support delivered with professionalism, responsiveness, and operational reliability.
-</p>
-</div>
-
-<div class="card fade">
-<h3>Relationship-Driven</h3>
-<p>
-We prioritize long-term operational alignment rather than transactional support.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
+<!-- =========================
+SERVICES
+========================= -->
 
 <section id="services">
 
 <h2 class="section-title fade">
-Support Solutions
+Executive Operational Support
 </h2>
 
-<div class="grid">
+<p class="section-sub fade">
+Professionally managed support solutions designed to improve operational clarity, workflow structure, communication consistency, and scalable business coordination.
+</p>
+
+<div class="cards">
 
 <div class="card fade">
 
-<img
-src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop"
-style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
-/>
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop">
+</div>
 
-<h3>Executive Support</h3>
+<div class="card-content">
+
+<div class="card-icon">✦</div>
+
+<h3>Executive Assistance</h3>
 
 <p>
-Scheduling oversight, communication coordination, inbox management, and operational assistance for leadership teams.
+Calendar coordination, communication oversight, scheduling management, administrative organization, and leadership support systems.
 </p>
+
+</div>
 
 </div>
 
 <div class="card fade">
 
-<img
-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop"
-style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
-/>
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<div class="card-icon">✦</div>
+
+<h3>Client Communication</h3>
+
+<p>
+Professional communication management, CRM coordination, inbox support, and operational responsiveness for growing businesses.
+</p>
+
+</div>
+
+</div>
+
+<div class="card fade">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<div class="card-icon">✦</div>
 
 <h3>Workflow Management</h3>
 
 <p>
-Workflow coordination, recurring operational systems, and business process organization.
+Workflow organization, recurring operational systems, internal coordination, and structured business process management.
 </p>
 
 </div>
-
-<div class="card fade">
-
-<img
-src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
-style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
-/>
-
-<h3>Client Operations Support</h3>
-
-<p>
-Professional client communication systems, CRM coordination, and operational responsiveness.
-</p>
 
 </div>
 
@@ -989,67 +1041,98 @@ Professional client communication systems, CRM coordination, and operational res
 
 </section>
 
-<!-- BENTO -->
+<!-- =========================
+WORKFLOW
+========================= -->
 
-<section>
+<section id="workflow">
 
-<h2 class="section-title fade">
-Operational Excellence In Action
+<div class="workflow">
+
+<div class="workflow-image fade">
+
+<img
+src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop"
+alt="Workflow Systems"
+/>
+
+</div>
+
+<div class="fade">
+
+<h2 class="section-title">
+Workflow Systems Built For Scale
 </h2>
 
-<div class="bento">
+<p class="section-sub">
+Echelon Remote helps businesses create more reliable operational systems through structured communication, recurring workflows, operational oversight, and coordinated remote support.
+</p>
 
-<img
-class="bento-large fade"
-src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop"
-/>
+<div class="workflow-points">
 
-<img
-class="bento-small fade"
-src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop"
-/>
+<div class="workflow-point">
+<h3>Operational Coordination</h3>
+<p>
+Structured systems designed to maintain organization, visibility, and consistency.
+</p>
+</div>
 
-<img
-class="bento-small fade"
-src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop"
-/>
+<div class="workflow-point">
+<h3>Communication Systems</h3>
+<p>
+Reliable communication management for internal teams and client-facing operations.
+</p>
+</div>
+
+<div class="workflow-point">
+<h3>Business Infrastructure</h3>
+<p>
+Scalable support systems designed for long-term operational growth.
+</p>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- FOUNDER -->
+<!-- =========================
+TRAINING
+========================= -->
 
-<section id="founder">
+<section id="training">
 
-<div class="founder fade">
+<div class="training fade">
+
+<div class="training-grid">
+
+<div>
+
+<h2 class="section-title">
+Training & Operational Standards
+</h2>
+
+<p class="section-sub">
+Echelon Remote maintains professional operational standards through structured systems, workflow organization, communication practices, and ongoing support refinement.
+</p>
+
+<p class="section-sub">
+Our approach prioritizes professionalism, organization, responsiveness, and operational consistency across every engagement.
+</p>
+
+</div>
 
 <div>
 
 <img
-src="https://i.imgur.com/Bd9iTnk.png"
-alt="Founder"
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1974&auto=format&fit=crop"
+alt="Training"
 />
 
 </div>
-
-<div class="founder-content">
-
-<span>
-Founder & Operations Lead
-</span>
-
-<h2 class="section-title">
-Masheica Thomas
-</h2>
-
-<p class="section-sub">
-Masheica Thomas leads Echelon Remote with a focus on professionalism, operational structure, and relationship-driven support.
-</p>
-
-<p class="section-sub">
-With experience across executive support, business administration, workflow coordination, and operational systems, her approach centers on helping businesses operate with greater clarity and consistency.
-</p>
 
 </div>
 
@@ -1057,58 +1140,73 @@ With experience across executive support, business administration, workflow coor
 
 </section>
 
-<!-- PROOF -->
+<!-- =========================
+ABOUT
+========================= -->
 
-<section>
+<section id="about">
 
 <h2 class="section-title fade">
-Operational Systems & Workflow Support
+Built For Modern Business Operations
 </h2>
 
-<div class="grid">
+<p class="section-sub fade">
+Echelon Remote provides premium managed operational support for growing businesses that value professionalism, operational structure, communication consistency, and scalable remote systems.
+</p>
+
+<div class="cards">
 
 <div class="card fade">
 
-<img
-src="https://i.imgur.com/U6zzSaF.png"
-style="border-radius:18px; margin-bottom:24px;"
-/>
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1974&auto=format&fit=crop">
+</div>
 
-<h3>Workflow Systems</h3>
+<div class="card-content">
+
+<h3>Structured Support</h3>
 
 <p>
-Operational organization and structured workflow coordination designed for growing businesses.
+Reliable operational systems designed to improve organization and workflow visibility.
 </p>
+
+</div>
 
 </div>
 
 <div class="card fade">
 
-<img
-src="https://i.imgur.com/Jr7ZmaH.png"
-style="border-radius:18px; margin-bottom:24px;"
-/>
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop">
+</div>
 
-<h3>Communication Management</h3>
+<div class="card-content">
+
+<h3>Professional Standards</h3>
 
 <p>
-Support systems that improve communication consistency and operational responsiveness.
+Support delivered with consistency, professionalism, responsiveness, and operational clarity.
 </p>
+
+</div>
 
 </div>
 
 <div class="card fade">
 
-<img
-src="https://i.imgur.com/6oo7dVp.png"
-style="border-radius:18px; margin-bottom:24px;"
-/>
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop">
+</div>
 
-<h3>Operational Coordination</h3>
+<div class="card-content">
+
+<h3>Scalable Operations</h3>
 
 <p>
-Managed support processes designed to maintain structure and day-to-day business efficiency.
+Business infrastructure designed to support growing teams and expanding operations.
 </p>
+
+</div>
 
 </div>
 
@@ -1116,134 +1214,20 @@ Managed support processes designed to maintain structure and day-to-day business
 
 </section>
 
-<!-- PROCESS -->
-
-<section>
-
-<h2 class="section-title fade">
-How Echelon Works
-</h2>
-
-<div class="process-grid">
-
-<div class="process-card fade">
-<h3>1. Discovery Consultation</h3>
-<p>
-We begin by understanding your workflow structure, operational needs, and communication priorities.
-</p>
-</div>
-
-<div class="process-card fade">
-<h3>2. Operational Assessment</h3>
-<p>
-Workflow gaps, recurring tasks, and operational opportunities are identified and organized.
-</p>
-</div>
-
-<div class="process-card fade">
-<h3>3. Support Alignment</h3>
-<p>
-Support systems are aligned to your business structure and operational workflow.
-</p>
-</div>
-
-<div class="process-card fade">
-<h3>4. Ongoing Coordination</h3>
-<p>
-Ongoing operational oversight and communication support maintain consistency and efficiency.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ARTICLES -->
-
-<section id="insights">
-
-<h2 class="section-title fade">
-Operational Insights
-</h2>
-
-<div class="grid">
-
-<div class="card article-card fade">
-
-<img
-src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=1974&auto=format&fit=crop"
-/>
-
-<h3>
-Why Delegation Creates Operational Clarity
-</h3>
-
-<p>
-How operational support allows leadership teams to focus on growth while maintaining structure.
-</p>
-
-<a href="article1.html" class="article-link">
-Read Insight →
-</a>
-
-</div>
-
-<div class="card article-card fade">
-
-<img
-src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop"
-/>
-
-<h3>
-Building Reliable Communication Systems
-</h3>
-
-<p>
-Operational systems that improve organization, responsiveness, and communication flow.
-</p>
-
-<a href="article2.html" class="article-link">
-Read Insight →
-</a>
-
-</div>
-
-<div class="card article-card fade">
-
-<img
-src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
-/>
-
-<h3>
-The Modern Standard For Operational Support
-</h3>
-
-<p>
-Why businesses are investing in professionally managed operational systems and coordination.
-</p>
-
-<a href="article3.html" class="article-link">
-Read Insight →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
+<!-- =========================
+CONTACT
+========================= -->
 
 <section id="contact">
 
-<div class="contact-box fade">
+<div class="contact fade">
 
 <h2 class="section-title">
 Request A Consultation
 </h2>
 
 <p class="section-sub">
-Professional inquiries only. Most consultation requests receive a response within 24–48 business hours.
+Professional inquiries only. Consultation requests typically receive a response within 24–48 business hours.
 </p>
 
 <form
@@ -1273,12 +1257,13 @@ placeholder="Company Name"
 
 <textarea
 name="message"
-placeholder="Tell us about your support needs"
+placeholder="Tell us about your operational support needs"
+required
 ></textarea>
 
 <button
 type="submit"
-class="hero-btn primary-btn"
+class="btn btn-primary"
 >
 Submit Inquiry
 </button>
@@ -1289,44 +1274,34 @@ Submit Inquiry
 
 </section>
 
-<!-- FOOTER -->
+<!-- =========================
+FOOTER
+========================= -->
 
 <footer>
 
-<div class="socials">
+<div class="footer-links">
 
-<a
-href="https://www.linkedin.com/company/echelon-remote/"
-target="_blank"
->
-LinkedIn
-</a>
-
-<a
-href="https://www.facebook.com/echelonremote"
-target="_blank"
->
-Facebook
-</a>
-
-<a
-href="https://calendly.com/echelonremote/30min"
-target="_blank"
->
-Book Consultation
-</a>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#workflow">Workflow Systems</a>
+<a href="#training">Training</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
 
 </div>
 
 <p>
-© 2026 Echelon Remote • Serving businesses globally.
+© 2026 Echelon Remote • Premium Operational Support
 <br><br>
-Premium managed operational support designed for growing businesses that value structure, professionalism, and operational consistency.
+Structured remote operational systems designed for founders, leadership teams, and growing businesses worldwide.
 </p>
 
 </footer>
 
-<!-- SCRIPT -->
+<!-- =========================
+SCRIPT
+========================= -->
 
 <script>
 
@@ -1342,9 +1317,9 @@ entry.target.classList.add('show');
 
 });
 
-},{ threshold:0.15 });
+},{threshold:0.15});
 
-fades.forEach(fade => {
+fades.forEach(fade=>{
 observer.observe(fade);
 });
 
@@ -1352,7 +1327,16 @@ window.addEventListener('scroll',()=>{
 
 const header = document.getElementById('header');
 
-header.classList.toggle('scrolled',window.scrollY > 50);
+header.classList.toggle('scrolled',window.scrollY > 40);
+
+});
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click',()=>{
+
+mobileMenu.classList.toggle('active');
 
 });
 
