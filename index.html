@@ -73,6 +73,8 @@ backdrop-filter:blur(18px);
 
 .logo img{
 height:60px;
+mix-blend-mode:screen;
+filter:drop-shadow(0 0 8px rgba(255,255,255,0.15));
 }
 
 .nav-links{
@@ -112,6 +114,7 @@ overflow:hidden;
 }
 
 .hero-bg{
+animation:slowZoom 18s ease-in-out infinite alternate;
 position:absolute;
 inset:0;
 background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
@@ -122,10 +125,11 @@ transform:scale(1.05);
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(135deg,rgba(2,10,18,0.95),rgba(7,19,33,0.82));
+background:linear-gradient(135deg,rgba(2,10,18,0.96),rgba(7,19,33,0.88));
 }
 
 .glow{
+animation:floatGlow 10s ease-in-out infinite alternate;
 position:absolute;
 width:520px;
 height:520px;
@@ -197,10 +201,31 @@ background:rgba(255,255,255,0.10);
 transform:translateY(-3px);
 }
 
+@keyframes slowZoom{
+from{transform:scale(1.05);}
+to{transform:scale(1.12);}
+}
+
+@keyframes floatGlow{
+from{transform:translateY(0px) translateX(0px);}
+to{transform:translateY(40px) translateX(-30px);}
+}
+
 .section-title{
 font-size:3rem;
 margin-bottom:24px;
+position:relative;
 line-height:1.1;
+}
+
+.section-title::after{
+content:'';
+display:block;
+width:85px;
+height:2px;
+background:#d5a85e;
+margin-top:18px;
+border-radius:10px;
 }
 
 .section-sub{
@@ -325,6 +350,10 @@ height:230px;
 object-fit:cover;
 border-radius:18px;
 margin-bottom:24px;
+}
+
+.article-card:hover img{
+transform:scale(1.06);
 }
 
 .article-link{
@@ -532,6 +561,43 @@ Echelon Remote provides premium managed remote support for growing businesses th
 </div>
 </section>
 
+<section id="why">
+
+<h2 class="section-title fade">
+Why Businesses Choose Echelon Remote
+</h2>
+
+<p class="section-sub fade">
+We focus on operational consistency, professional communication, and relationship-driven support designed for businesses that value structure and reliability.
+</p>
+
+<div class="grid">
+
+<div class="card fade">
+<h3>Structured Support</h3>
+<p>
+Carefully organized operational systems that improve clarity, consistency, and day-to-day business coordination.
+</p>
+</div>
+
+<div class="card fade">
+<h3>Professional Standards</h3>
+<p>
+Operational support delivered with professionalism, discretion, responsiveness, and strong communication practices.
+</p>
+</div>
+
+<div class="card fade">
+<h3>Relationship-Driven Approach</h3>
+<p>
+We prioritize long-term operational alignment and dependable communication rather than transactional support.
+</p>
+</div>
+
+</div>
+
+</section>
+
 <section id="services">
 
 <h2 class="section-title fade">
@@ -670,7 +736,20 @@ Operational Insights & Business Growth
 
 <div class="grid">
 
-<div class="card article-card fade">
+<div class="card article-card fade" style="overflow:hidden;">
+<img style="transition:0.5s ease;" src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=1974&auto=format&fit=crop" alt="African American Executive Team">
+<h3>
+Why Delegation Creates Operational Clarity
+</h3>
+<p>
+How structured support allows leadership teams to focus on strategic growth while maintaining operational consistency.
+</p>
+<a href="article1.html" class="article-link">
+Read Insight →
+</a>
+</div>
+
+<div class="card article-card fade" style="overflow:hidden;">
 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop" alt="Delegation and Operations">
 <h3>
 Why Delegation Creates Operational Clarity
@@ -684,7 +763,7 @@ Read Insight →
 </div>
 
 <div class="card article-card fade">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop" alt="Communication Systems">
+<img style="transition:0.5s ease;" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop" alt="African American Business Meeting">
 <h3>
 Building Reliable Client Communication Systems
 </h3>
@@ -696,8 +775,8 @@ Read Insight →
 </a>
 </div>
 
-<div class="card article-card fade">
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1974&auto=format&fit=crop" alt="Operational Support Standards">
+<div class="card article-card fade" style="overflow:hidden;">
+<img style="transition:0.5s ease;" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop" alt="Professional Operations Team">
 <h3>
 The Modern Standard For Operational Support
 </h3>
@@ -740,6 +819,46 @@ What Clients Appreciate
 </div>
 </section>
 
+<section>
+
+<h2 class="section-title fade">
+How Echelon Works
+</h2>
+
+<div class="grid">
+
+<div class="card fade">
+<h3>1. Discovery Consultation</h3>
+<p>
+We begin by understanding your operational structure, communication needs, and support priorities.
+</p>
+</div>
+
+<div class="card fade">
+<h3>2. Operational Assessment</h3>
+<p>
+We evaluate workflow gaps, recurring operational tasks, and coordination opportunities.
+</p>
+</div>
+
+<div class="card fade">
+<h3>3. Support Alignment</h3>
+<p>
+Structured support solutions are aligned to your business operations and communication systems.
+</p>
+</div>
+
+<div class="card fade">
+<h3>4. Ongoing Coordination</h3>
+<p>
+Continuous operational oversight and communication support help maintain consistency and efficiency.
+</p>
+</div>
+
+</div>
+
+</section>
+
 <section id="contact">
 <div class="contact-box fade">
 
@@ -748,6 +867,10 @@ Request A Consultation
 </h2>
 
 <p class="section-sub" style="margin-bottom:0;">
+Professional inquiries only. Most consultation requests receive a response within 24–48 business hours.
+</p>
+
+<p class="section-sub" style="margin-top:20px; margin-bottom:0;">
 Tell us about your operational support needs and we’ll follow up with the next steps.
 </p>
 
@@ -764,6 +887,20 @@ Submit Inquiry
 </div>
 </section>
 
+<section>
+
+<h2 class="section-title fade">
+Tools & Operational Systems
+</h2>
+
+<div class="proof-grid">
+<img class="fade" src="https://i.imgur.com/rRW6oX4.png" alt="CRM Dashboard">
+<img class="fade" src="https://i.imgur.com/gmJmZ0f.png" alt="Business Workflow System">
+<img class="fade" src="https://i.imgur.com/i4C03hG.png" alt="Operations Management Tool">
+</div>
+
+</section>
+
 <footer>
 
 <div class="socials">
@@ -773,6 +910,8 @@ Submit Inquiry
 </div>
 
 <p>
+© 2026 Echelon Remote • Serving businesses globally.
+<br><br>
 Echelon Remote provides premium managed operational support for growing businesses through structured systems, communication consistency, and dependable remote support.
 </p>
 
@@ -800,5 +939,4 @@ header.classList.toggle('scrolled', window.scrollY > 50);
 </script>
 
 </body>
-</html>
-```
+  </html>
