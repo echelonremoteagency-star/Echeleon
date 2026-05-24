@@ -1,67 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Communication Workflows | Echelon Remote</title>
+<title>
+Communication Workflows | Echelon Remote
+</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:'Poppins',sans-serif;
 background:#071321;
 color:#fff;
-line-height:1.9;
+line-height:1.8;
+overflow-x:hidden;
 }
 
-.hero{
-height:60vh;
+.article-hero{
+position:relative;
+min-height:60vh;
+display:flex;
+align-items:center;
+padding:140px 7% 90px;
+overflow:hidden;
+}
+
+.article-hero::before{
+content:'';
+position:absolute;
+inset:0;
 background:
-linear-gradient(rgba(4,10,18,0.80),rgba(4,10,18,0.88)),
+linear-gradient(rgba(4,10,18,0.78),rgba(4,10,18,0.88)),
 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1974&auto=format&fit=crop');
 background-size:cover;
 background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:40px;
+z-index:-1;
 }
 
-.hero h1{
-font-size:3.5rem;
+.article-hero h1{
+font-size:4.5rem;
+line-height:1.05;
+font-weight:800;
 max-width:900px;
 }
 
-.content{
+.article-content{
 max-width:950px;
 margin:auto;
-padding:90px 8%;
+padding:80px 7%;
 }
 
-h2{
-color:#d5a85e;
+.article-content p{
+margin-bottom:28px;
+font-size:1.08rem;
+color:#d4d8de;
+}
+
+.article-content h2{
+font-size:2rem;
+margin:60px 0 24px;
+}
+
+.back-btn{
+display:inline-flex;
 margin-top:50px;
-}
-
-p{
-color:#d5dce4;
-}
-
-a{
-display:inline-block;
-margin-top:40px;
-color:#d5a85e;
-text-decoration:none;
+padding:16px 26px;
+border-radius:14px;
+background:#d5a85e;
+color:#071321;
 font-weight:600;
+text-decoration:none;
+}
+
+@media(max-width:768px){
+
+.article-hero h1{
+font-size:2.7rem;
+line-height:1.1;
+}
+
+.article-content h2{
+font-size:1.5rem;
+}
+
 }
 
 </style>
@@ -70,7 +110,7 @@ font-weight:600;
 
 <body>
 
-<section class="hero">
+<section class="article-hero">
 
 <h1>
 Building Scalable Communication Workflows
@@ -78,51 +118,42 @@ Building Scalable Communication Workflows
 
 </section>
 
-<section class="content">
+<section class="article-content">
 
 <p>
-Communication is one of the most important operational functions within any business. As companies grow, communication complexity increases significantly across clients, internal teams, scheduling systems, and operational processes.
+Communication is one of the most important operational functions within growing businesses. Without structure, responsiveness decreases and workflows become inconsistent.
 </p>
+
+<h2>
+Centralized Communication
+</h2>
 
 <p>
-Without structured communication workflows, businesses often experience delays, inconsistent follow-ups, missed information, and reduced operational efficiency.
+Structured communication systems improve client relationships, internal coordination, and operational visibility.
 </p>
 
-<h2>Why Communication Systems Matter</h2>
+<h2>
+Workflow Consistency
+</h2>
 
 <p>
-Strong communication workflows create consistency. They establish clear processes for handling inquiries, managing responses, tracking conversations, and maintaining operational visibility.
+Businesses scale more effectively when communication workflows are documented, repeatable, and operationally organized.
 </p>
+
+<h2>
+Long-Term Operational Support
+</h2>
 
 <p>
-Businesses with organized communication systems are often more responsive, more efficient, and better positioned to maintain professional client experiences.
+Scalable communication workflows create consistency across teams, improve responsiveness, and strengthen operational reliability.
 </p>
 
-<h2>Scalable Workflows Reduce Operational Friction</h2>
-
-<p>
-As operational demands increase, scalable workflows help reduce unnecessary confusion and improve coordination across teams and systems.
-</p>
-
-<p>
-Communication management, inbox oversight, CRM organization, scheduling coordination, and documentation processes all contribute to stronger operational infrastructure.
-</p>
-
-<h2>Modern Operations Depend On Visibility</h2>
-
-<p>
-Visibility is essential for operational consistency. Businesses require clear communication systems that allow leadership teams to maintain awareness across workflows, conversations, and responsibilities.
-</p>
-
-<p>
-Operational communication is no longer simply administrative support. It has become a core part of maintaining business efficiency and sustainable growth.
-</p>
-
-<a href="index.html">
-← Back To Home
+<a href="index.html" class="back-btn">
+Back To Home
 </a>
 
 </section>
 
 </body>
+
 </html>
