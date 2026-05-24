@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -19,6 +20,7 @@ content="executive support, operational support, remote support company, workflo
 <meta name="robots" content="index, follow" />
 
 <meta property="og:title" content="Echelon Remote" />
+
 <meta
 property="og:description"
 content="Premium managed operational support for growing businesses."
@@ -26,17 +28,20 @@ content="Premium managed operational support for growing businesses."
 
 <meta
 property="og:image"
-content="https://i.imgur.com/d6pugq3.png"
+content="https://i.imgur.com/DKNGig0.png"
 />
 
 <meta property="og:type" content="website" />
 
-<link rel="icon" href="https://i.imgur.com/d6pugq3.png" />
+<link rel="icon" href="https://i.imgur.com/DKNGig0.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
 
 <style>
 
@@ -50,7 +55,7 @@ scroll-behavior:smooth;
 body{
 font-family:'Poppins',sans-serif;
 background:#071321;
-color:white;
+color:#fff;
 overflow-x:hidden;
 }
 
@@ -63,55 +68,70 @@ background:#d5a85e;
 border-radius:10px;
 }
 
-section{
-padding:110px 8%;
-position:relative;
-}
-
 img{
 max-width:100%;
 display:block;
 }
 
+section{
+padding:110px 8%;
+position:relative;
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* NAV */
+
 header{
 position:fixed;
-width:100%;
 top:0;
+width:100%;
 z-index:1000;
 padding:18px 6%;
 transition:0.4s ease;
 }
 
 header.scrolled{
-background:rgba(7,19,33,0.9);
-backdrop-filter:blur(16px);
+background:rgba(4,10,18,0.9);
+backdrop-filter:blur(18px);
 }
 
 .nav{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:16px 28px;
-border-radius:24px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.12);
-backdrop-filter:blur(18px);
+padding:14px 24px;
+border-radius:22px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
 }
 
 .logo img{
-height:58px;
+height:52px;
+width:auto;
+object-fit:contain;
 mix-blend-mode:screen;
 }
 
 .nav-links{
 display:flex;
-gap:26px;
+gap:24px;
 }
 
 .nav-links a{
-color:white;
+color:#fff;
 text-decoration:none;
-font-size:0.95rem;
+font-size:0.94rem;
 font-weight:500;
 position:relative;
 }
@@ -131,12 +151,14 @@ transition:0.3s ease;
 width:100%;
 }
 
+/* HERO */
+
 .hero{
+position:relative;
 min-height:100vh;
-display:grid;
-grid-template-columns:1.1fr 1fr;
+display:flex;
 align-items:center;
-gap:60px;
+padding:180px 8% 120px;
 overflow:hidden;
 }
 
@@ -144,25 +166,56 @@ overflow:hidden;
 position:absolute;
 inset:0;
 background:
-linear-gradient(rgba(3,10,18,0.88),rgba(7,19,33,0.88)),
 url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop');
 background-size:cover;
 background-position:center;
+animation:heroZoom 20s ease-in-out infinite alternate;
 z-index:-3;
-animation:zoomBg 18s ease-in-out infinite alternate;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+135deg,
+rgba(3,10,18,0.94),
+rgba(7,19,33,0.90)
+);
+z-index:-2;
 }
 
 .hero-glow{
 position:absolute;
-width:550px;
-height:550px;
-background:rgba(213,168,94,0.10);
+width:650px;
+height:650px;
+background:rgba(213,168,94,0.12);
 filter:blur(120px);
 border-radius:50%;
-top:-150px;
-right:-100px;
+top:-200px;
+right:-120px;
 z-index:-1;
-animation:floatGlow 12s ease-in-out infinite alternate;
+animation:floatGlow 10s ease-in-out infinite alternate;
+}
+
+.hero-wrapper{
+width:100%;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:80px;
+align-items:center;
+}
+
+.hero-badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:50px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+font-size:0.78rem;
+letter-spacing:1px;
+margin-bottom:28px;
+backdrop-filter:blur(10px);
 }
 
 .hero-content h1{
@@ -170,95 +223,136 @@ font-size:5rem;
 line-height:0.95;
 margin-bottom:28px;
 font-weight:800;
-max-width:680px;
+max-width:700px;
 }
 
 .hero-content p{
-font-size:1.08rem;
+font-size:1.05rem;
 line-height:1.9;
-color:#d6dce3;
-max-width:580px;
+max-width:620px;
+color:#d7dde5;
 margin-bottom:40px;
 }
 
-.btn-group{
+.hero-buttons{
 display:flex;
 gap:18px;
 flex-wrap:wrap;
+margin-bottom:50px;
 }
 
-.btn{
+.hero-btn{
 padding:18px 34px;
 border-radius:14px;
-text-decoration:none;
 font-weight:600;
+text-decoration:none;
 transition:0.4s ease;
 display:inline-flex;
 align-items:center;
 justify-content:center;
 }
 
-.primary{
+.primary-btn{
 background:#d5a85e;
 color:#071321;
 }
 
-.primary:hover{
+.primary-btn:hover{
 transform:translateY(-4px);
-box-shadow:0 18px 40px rgba(213,168,94,0.25);
+box-shadow:0 20px 50px rgba(213,168,94,0.3);
 }
 
-.secondary{
-border:1px solid rgba(255,255,255,0.12);
+.secondary-btn{
 background:rgba(255,255,255,0.05);
-color:white;
+border:1px solid rgba(255,255,255,0.08);
+color:#fff;
 backdrop-filter:blur(10px);
 }
 
-.secondary:hover{
+.secondary-btn:hover{
 background:rgba(255,255,255,0.08);
 transform:translateY(-4px);
 }
 
-.hero-collage{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
+.hero-stats{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.stat-item{
+padding:22px 26px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:20px;
+backdrop-filter:blur(10px);
+min-width:170px;
+}
+
+.stat-item h3{
+font-size:2rem;
+margin-bottom:8px;
+color:#d5a85e;
+}
+
+.stat-item p{
+font-size:0.9rem;
+margin:0;
+line-height:1.5;
+}
+
+.hero-visual{
+display:flex;
+justify-content:center;
 position:relative;
 }
 
-.hero-card{
-overflow:hidden;
-border-radius:26px;
-border:1px solid rgba(255,255,255,0.08);
-background:#0e1d33;
-box-shadow:0 20px 60px rgba(0,0,0,0.25);
-}
-
-.hero-card img{
+.main-image-card{
+position:relative;
 width:100%;
-height:100%;
+max-width:500px;
+border-radius:40px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+background:#0d1d34;
+box-shadow:0 40px 90px rgba(0,0,0,0.35);
+}
+
+.main-image-card img{
+width:100%;
+height:680px;
 object-fit:cover;
-transition:0.5s ease;
+display:block;
 }
 
-.hero-card:hover img{
-transform:scale(1.05);
+.floating-card{
+position:absolute;
+padding:16px 22px;
+background:rgba(7,19,33,0.82);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+border-radius:18px;
+font-size:0.92rem;
+font-weight:500;
+box-shadow:0 12px 30px rgba(0,0,0,0.25);
 }
 
-.tall{
-grid-row:span 2;
-height:540px;
+.top-card{
+top:30px;
+left:-30px;
 }
 
-.small{
-height:260px;
+.bottom-card{
+bottom:30px;
+right:-30px;
 }
+
+/* TITLES */
 
 .section-title{
 font-size:3rem;
-margin-bottom:22px;
 line-height:1.1;
+margin-bottom:22px;
 position:relative;
 }
 
@@ -273,12 +367,14 @@ border-radius:10px;
 }
 
 .section-sub{
-max-width:720px;
-line-height:1.95;
+max-width:760px;
+line-height:1.9;
 color:#cfd5dc;
 margin-bottom:60px;
-font-size:1.02rem;
+font-size:1rem;
 }
+
+/* GRID */
 
 .grid{
 display:grid;
@@ -287,7 +383,11 @@ gap:28px;
 }
 
 .card{
-background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.03));
+background:linear-gradient(
+180deg,
+rgba(255,255,255,0.05),
+rgba(255,255,255,0.03)
+);
 border:1px solid rgba(255,255,255,0.08);
 padding:34px;
 border-radius:28px;
@@ -304,7 +404,7 @@ box-shadow:0 25px 50px rgba(0,0,0,0.28);
 
 .card h3{
 margin-bottom:16px;
-font-size:1.35rem;
+font-size:1.3rem;
 }
 
 .card p{
@@ -312,6 +412,8 @@ line-height:1.9;
 color:#d2d9e0;
 font-size:0.98rem;
 }
+
+/* VISUAL SECTION */
 
 .visual-section{
 display:grid;
@@ -324,6 +426,8 @@ align-items:center;
 border-radius:30px;
 box-shadow:0 25px 60px rgba(0,0,0,0.35);
 }
+
+/* STATS */
 
 .stats{
 display:grid;
@@ -345,6 +449,8 @@ font-size:2.4rem;
 margin-bottom:10px;
 color:#d5a85e;
 }
+
+/* BENTO */
 
 .bento{
 display:grid;
@@ -371,6 +477,8 @@ height:540px;
 .bento-small{
 height:260px;
 }
+
+/* FOUNDER */
 
 .founder{
 display:grid;
@@ -415,6 +523,8 @@ font-weight:600;
 margin-bottom:18px;
 }
 
+/* PROCESS */
+
 .process-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -432,6 +542,8 @@ border:1px solid rgba(255,255,255,0.06);
 margin-bottom:16px;
 color:#d5a85e;
 }
+
+/* ARTICLES */
 
 .article-card img{
 width:100%;
@@ -454,6 +566,8 @@ font-weight:600;
 text-decoration:none;
 }
 
+/* CONTACT */
+
 .contact-box{
 background:linear-gradient(135deg,#0d1d34,#12294c);
 padding:70px;
@@ -472,7 +586,7 @@ padding:18px;
 border-radius:16px;
 border:1px solid rgba(255,255,255,0.08);
 background:rgba(255,255,255,0.06);
-color:white;
+color:#fff;
 font-family:Poppins,sans-serif;
 }
 
@@ -480,6 +594,13 @@ textarea{
 min-height:160px;
 resize:none;
 }
+
+button{
+border:none;
+cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
 padding:60px 8%;
@@ -502,24 +623,19 @@ flex-wrap:wrap;
 }
 
 .socials a{
-color:white;
+color:#fff;
 text-decoration:none;
 }
 
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
-}
+/* ANIMATIONS */
 
-.fade.show{
-opacity:1;
-transform:translateY(0);
+@keyframes heroZoom{
+from{
+transform:scale(1);
 }
-
-@keyframes zoomBg{
-from{transform:scale(1);}
-to{transform:scale(1.08);}
+to{
+transform:scale(1.08);
+}
 }
 
 @keyframes floatGlow{
@@ -527,19 +643,68 @@ from{
 transform:translateY(0px) translateX(0px);
 }
 to{
-transform:translateY(40px) translateX(-40px);
+transform:translateY(30px) translateX(-40px);
 }
 }
+
+/* MOBILE */
 
 @media(max-width:1000px){
 
+.nav-links{
+display:none;
+}
+
 .hero{
+padding:140px 6% 80px;
+min-height:auto;
+}
+
+.hero-wrapper{
 grid-template-columns:1fr;
-padding-top:140px;
+gap:50px;
 }
 
 .hero-content h1{
 font-size:3rem;
+line-height:1.05;
+}
+
+.hero-content p{
+font-size:0.98rem;
+line-height:1.8;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.hero-btn{
+width:100%;
+}
+
+.hero-stats{
+display:grid;
+grid-template-columns:1fr;
+gap:16px;
+}
+
+.main-image-card{
+max-width:100%;
+}
+
+.main-image-card img{
+height:480px;
+}
+
+.top-card{
+left:15px;
+top:15px;
+}
+
+.bottom-card{
+right:15px;
+bottom:15px;
 }
 
 .visual-section{
@@ -560,33 +725,8 @@ grid-template-columns:1fr;
 height:300px;
 }
 
-.nav-links{
-display:none;
-}
-
-.hero-collage{
-grid-template-columns:1fr 1fr;
-}
-
-.tall{
-height:300px;
-}
-
-.small{
-height:300px;
-}
-
 .contact-box{
 padding:40px 28px;
-}
-
-.btn-group{
-flex-direction:column;
-align-items:flex-start;
-}
-
-.btn{
-width:100%;
 }
 
 .section-title{
@@ -596,6 +736,7 @@ font-size:2.4rem;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -605,7 +746,7 @@ font-size:2.4rem;
 <div class="nav">
 
 <a href="#home" class="logo">
-<img src="https://i.imgur.com/d6pugq3.png" alt="Echelon Remote Logo">
+<img src="https://i.imgur.com/DKNGig0.png" alt="Echelon Remote Logo">
 </a>
 
 <div class="nav-links">
@@ -620,59 +761,99 @@ font-size:2.4rem;
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
 
 <div class="hero-bg"></div>
+<div class="hero-overlay"></div>
 <div class="hero-glow"></div>
 
+<div class="hero-wrapper">
+
 <div class="hero-content fade show">
+
+<span class="hero-badge">
+PREMIUM OPERATIONAL SUPPORT
+</span>
 
 <h1>
 Operational Support Built For Growing Businesses.
 </h1>
 
 <p>
-Echelon Remote helps founders and leadership teams streamline operations through professionally managed support, operational coordination, workflow systems, and dependable communication support.
+Echelon Remote helps founders and leadership teams streamline operations through professionally managed support, workflow coordination, communication systems, and structured remote operational assistance.
 </p>
 
-<div class="btn-group">
+<div class="hero-buttons">
 
-<a href="https://calendly.com/echelonremote/30min" target="_blank" class="btn primary">
+<a href="https://calendly.com/echelonremote/30min" target="_blank" class="hero-btn primary-btn">
 Book A Consultation
 </a>
 
-<a href="#services" class="btn secondary">
+<a href="#services" class="hero-btn secondary-btn">
 Explore Services
 </a>
 
 </div>
 
+<div class="hero-stats">
+
+<div class="stat-item">
+<h3>100+</h3>
+<p>Businesses Supported</p>
 </div>
 
-<div class="hero-collage fade show">
-
-<div class="hero-card tall">
-<img src="https://i.imgur.com/Bd9iTnk.png" alt="Founder">
+<div class="stat-item">
+<h3>Global</h3>
+<p>Remote Operations</p>
 </div>
 
-<div class="hero-card small">
-<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1974&auto=format&fit=crop" alt="Business Operations">
+<div class="stat-item">
+<h3>7+</h3>
+<p>Years Experience</p>
 </div>
 
-<div class="hero-card small">
-<img src="https://images.unsplash.com/photo-1573497491765-cf4147c24878?q=80&w=1974&auto=format&fit=crop" alt="Executive Support">
+</div>
+
+</div>
+
+<div class="hero-visual fade show">
+
+<div class="main-image-card">
+
+<img
+src="https://i.imgur.com/Bd9iTnk.png"
+alt="Founder & Operations Lead"
+/>
+
+<div class="floating-card top-card">
+<p>Operational Coordination</p>
+</div>
+
+<div class="floating-card bottom-card">
+<p>Executive Workflow Support</p>
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- ABOUT -->
+
 <section id="about">
 
 <div class="visual-section">
 
 <div class="fade">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop" alt="Operations Team">
+<img
+src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop"
+alt="Operations Team"
+/>
 </div>
 
 <div class="fade">
@@ -714,6 +895,8 @@ Our approach is relationship-driven and carefully managed — helping businesses
 
 </section>
 
+<!-- WHY -->
+
 <section>
 
 <h2 class="section-title fade">
@@ -747,6 +930,8 @@ We prioritize long-term operational alignment rather than transactional support.
 
 </section>
 
+<!-- SERVICES -->
+
 <section id="services">
 
 <h2 class="section-title fade">
@@ -756,32 +941,55 @@ Support Solutions
 <div class="grid">
 
 <div class="card fade">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop" style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop"
+style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Executive Support</h3>
+
 <p>
 Scheduling oversight, communication coordination, inbox management, and operational assistance for leadership teams.
 </p>
+
 </div>
 
 <div class="card fade">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop" style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1974&auto=format&fit=crop"
+style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Workflow Management</h3>
+
 <p>
 Workflow coordination, recurring operational systems, and business process organization.
 </p>
+
 </div>
 
 <div class="card fade">
-<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop" style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
+style="height:220px; object-fit:cover; border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Client Operations Support</h3>
+
 <p>
 Professional client communication systems, CRM coordination, and operational responsiveness.
 </p>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- BENTO -->
 
 <section>
 
@@ -791,22 +999,38 @@ Operational Excellence In Action
 
 <div class="bento">
 
-<img class="bento-large fade" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop">
+<img
+class="bento-large fade"
+src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1974&auto=format&fit=crop"
+/>
 
-<img class="bento-small fade" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop">
+<img
+class="bento-small fade"
+src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop"
+/>
 
-<img class="bento-small fade" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop">
+<img
+class="bento-small fade"
+src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1974&auto=format&fit=crop"
+/>
 
 </div>
 
 </section>
+
+<!-- FOUNDER -->
 
 <section id="founder">
 
 <div class="founder fade">
 
 <div>
-<img src="https://i.imgur.com/Bd9iTnk.png" alt="Founder">
+
+<img
+src="https://i.imgur.com/Bd9iTnk.png"
+alt="Founder"
+/>
+
 </div>
 
 <div class="founder-content">
@@ -833,6 +1057,8 @@ With experience across executive support, business administration, workflow coor
 
 </section>
 
+<!-- PROOF -->
+
 <section>
 
 <h2 class="section-title fade">
@@ -842,32 +1068,55 @@ Operational Systems & Workflow Support
 <div class="grid">
 
 <div class="card fade">
-<img src="https://i.imgur.com/U6zzSaF.png" style="border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://i.imgur.com/U6zzSaF.png"
+style="border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Workflow Systems</h3>
+
 <p>
 Operational organization and structured workflow coordination designed for growing businesses.
 </p>
+
 </div>
 
 <div class="card fade">
-<img src="https://i.imgur.com/Jr7ZmaH.png" style="border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://i.imgur.com/Jr7ZmaH.png"
+style="border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Communication Management</h3>
+
 <p>
 Support systems that improve communication consistency and operational responsiveness.
 </p>
+
 </div>
 
 <div class="card fade">
-<img src="https://i.imgur.com/6oo7dVp.png" style="border-radius:18px; margin-bottom:24px;">
+
+<img
+src="https://i.imgur.com/6oo7dVp.png"
+style="border-radius:18px; margin-bottom:24px;"
+/>
+
 <h3>Operational Coordination</h3>
+
 <p>
 Managed support processes designed to maintain structure and day-to-day business efficiency.
 </p>
+
 </div>
 
 </div>
 
 </section>
+
+<!-- PROCESS -->
 
 <section>
 
@@ -909,6 +1158,8 @@ Ongoing operational oversight and communication support maintain consistency and
 
 </section>
 
+<!-- ARTICLES -->
+
 <section id="insights">
 
 <h2 class="section-title fade">
@@ -919,7 +1170,9 @@ Operational Insights
 
 <div class="card article-card fade">
 
-<img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=1974&auto=format&fit=crop">
+<img
+src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=1974&auto=format&fit=crop"
+/>
 
 <h3>
 Why Delegation Creates Operational Clarity
@@ -937,7 +1190,9 @@ Read Insight →
 
 <div class="card article-card fade">
 
-<img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop">
+<img
+src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1974&auto=format&fit=crop"
+/>
 
 <h3>
 Building Reliable Communication Systems
@@ -955,7 +1210,9 @@ Read Insight →
 
 <div class="card article-card fade">
 
-<img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop">
+<img
+src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
+/>
 
 <h3>
 The Modern Standard For Operational Support
@@ -975,6 +1232,8 @@ Read Insight →
 
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
 
 <div class="contact-box fade">
@@ -987,17 +1246,40 @@ Request A Consultation
 Professional inquiries only. Most consultation requests receive a response within 24–48 business hours.
 </p>
 
-<form action="https://formspree.io/f/xgoqzjwd" method="POST">
+<form
+action="https://formspree.io/f/xgoqzjwd"
+method="POST"
+>
 
-<input type="text" name="name" placeholder="Full Name" required>
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required
+/>
 
-<input type="email" name="email" placeholder="Email Address" required>
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+required
+/>
 
-<input type="text" name="company" placeholder="Company Name">
+<input
+type="text"
+name="company"
+placeholder="Company Name"
+/>
 
-<textarea name="message" placeholder="Tell us about your support needs"></textarea>
+<textarea
+name="message"
+placeholder="Tell us about your support needs"
+></textarea>
 
-<button type="submit" class="btn primary">
+<button
+type="submit"
+class="hero-btn primary-btn"
+>
 Submit Inquiry
 </button>
 
@@ -1007,19 +1289,30 @@ Submit Inquiry
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
 <div class="socials">
 
-<a href="https://www.linkedin.com/company/echelon-remote/" target="_blank">
+<a
+href="https://www.linkedin.com/company/echelon-remote/"
+target="_blank"
+>
 LinkedIn
 </a>
 
-<a href="https://www.facebook.com/echelonremote" target="_blank">
+<a
+href="https://www.facebook.com/echelonremote"
+target="_blank"
+>
 Facebook
 </a>
 
-<a href="https://calendly.com/echelonremote/30min" target="_blank">
+<a
+href="https://calendly.com/echelonremote/30min"
+target="_blank"
+>
 Book Consultation
 </a>
 
@@ -1032,6 +1325,8 @@ Premium managed operational support designed for growing businesses that value s
 </p>
 
 </footer>
+
+<!-- SCRIPT -->
 
 <script>
 
@@ -1047,7 +1342,7 @@ entry.target.classList.add('show');
 
 });
 
-}, { threshold:0.15 });
+},{ threshold:0.15 });
 
 fades.forEach(fade => {
 observer.observe(fade);
@@ -1055,7 +1350,7 @@ observer.observe(fade);
 
 window.addEventListener('scroll',()=>{
 
-const header=document.getElementById('header');
+const header = document.getElementById('header');
 
 header.classList.toggle('scrolled',window.scrollY > 50);
 
@@ -1064,4 +1359,4 @@ header.classList.toggle('scrolled',window.scrollY > 50);
 </script>
 
 </body>
-  </html>
+</html>
