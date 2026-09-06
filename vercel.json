@@ -1,1 +1,1 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","redirects":[{"source":"/:path*","destination":"https://echelonremoteagency.company/:path*","permanent":true}]}
+{"$schema":"https://openapi.vercel.sh/vercel.json","redirects":[{"source":"/","destination":"https://echelonremoteagency.company/","permanent":true},{"source":"/:path*","destination":"https://echelonremoteagency.company/:path*","permanent":true}]}
